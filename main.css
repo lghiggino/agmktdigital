@@ -1,0 +1,9 @@
+@media (prefers-color-scheme: dark);
+
+.hero{
+    background: url("./assets/hero/hero-bcg.jpeg") center /cover;
+}
+
+.custom-navbar-black{
+    background-color: black;
+}
