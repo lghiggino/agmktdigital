@@ -51,17 +51,17 @@ scrollLinks.forEach(link => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
         //navigate to specific spot
-        const id = e.target.getAttribute("href").slice(1)
+        const id = e.currentTarget.getAttribute("href").slice(1)
         const element = document.getElementById(id);
         // calculate the heights
         const navHeight = navbar.getBoundingClientRect().height
         const containerHeight = linksContainer.getBoundingClientRect().height;
         const fixedNav = navbar.classList.contains("fixed-nav");
-        let position = element.offsetTop - navHeight;
+        let position = element.offsetTop - navHeight ;
         if(!fixedNav){
             position = position - navHeight;
         }
-        if (navHeight > 102){
+        else if (navHeight > 101){
             position = position + containerHeight;
         }
         window.scrollTo({
@@ -71,3 +71,35 @@ scrollLinks.forEach(link => {
         linksContainer.style.height = 0;
     })
 })
+
+// form control
+
+let cadastro = [] 
+
+function formControl(){
+    const formButton = document.querySelector("#form-submit-button");
+    const formName = document.querySelector("#form-name");
+    const formPhone = document.querySelector("#form-phone");
+    const formEmail = document.querySelector("#form-email");
+    const formMessage = document.querySelector("#form-message");  
+    
+    formButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        let varId = new Date().getTime().toString()
+        let object = new Object
+        object.id = varId
+        object.name = formName.value
+        object.phone = formPhone.value
+        object.email = formEmail.value
+        object.message = formMessage.value
+        cadastro.push({id: object.id, name: object.name, phone: object.phone, email: object.email, message: object.message})
+
+        formName.value = "";
+        formPhone.value = "";
+        formEmail.value  = "";
+        formMessage.value = "Agradecemos o contato. Retornaremos em breve"
+    })
+
+    return {cadastro}
+}
+formControl()
