@@ -405,3 +405,17 @@ footer .hidden{
   display: none;
 }
 
+/* titulos portfolio */
+.backside{
+  background-color:gray;
+}
+
+.custom-card {
+  border: 1px solid #49a6e9;
+  padding: 0.5em;
+}
+
+.custom-card .custom-text{
+  margin-top: -2em;
+  padding: 0em 1em;
+}
