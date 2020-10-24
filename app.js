@@ -77,7 +77,7 @@ scrollLinks.forEach(link => {
 let cadastro = [] 
 
 function formControl(){
-    const formButton = document.querySelector("#form-submit-button");
+    const formButton = document.querySelector("#mc-embedded-subscribe");
     const formName = document.querySelector("#form-name");
     const formPhone = document.querySelector("#form-phone");
     const formEmail = document.querySelector("#form-email");
@@ -103,3 +103,28 @@ function formControl(){
     return {cadastro}
 }
 formControl()
+
+
+//flip card
+
+
+let fronts = document.querySelectorAll(".front");
+let backs = document.querySelectorAll(".back")   
+
+fronts.forEach(front => {
+    let frontID = front.dataset.id;
+    front.addEventListener("mouseenter", () => {
+        //console.log(frontID)
+        front.classList.add("is-hidden")
+        backs.forEach(back => {
+            let backID = back.dataset.id;
+            if (frontID === backID){
+                back.classList.remove("is-hidden");
+            }
+            back.addEventListener("mouseleave", () => {
+                back.classList.add("is-hidden");
+                front.classList.remove("is-hidden")
+            })
+        })
+    })
+})

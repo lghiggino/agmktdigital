@@ -419,3 +419,7 @@ footer .hidden{
   margin-top: -2em;
   padding: 0em
 }
+
+.card-image{
+  cursor: pointer;
+}
