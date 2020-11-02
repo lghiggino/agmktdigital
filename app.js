@@ -128,3 +128,30 @@ fronts.forEach(front => {
         })
     })
 })
+
+
+//modals
+
+const modalBtns = document.querySelectorAll(".modal-btn");
+const modals = document.querySelectorAll(".modal");
+const modalBgs = document.querySelectorAll(".modal-background")
+
+modalBtns.forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault()
+        console.log(e.target.parentElement.dataset["id"])
+        modals.forEach(modal => {
+            if (modal.classList.contains(e.target.parentElement.dataset["id"])){
+                modal.classList.add("is-active");
+            };
+        });
+    });
+});
+
+modalBgs.forEach(bg => {
+    bg.addEventListener("click", () => {
+        modals.forEach(modal => {
+            modal.classList.remove("is-active")
+        })
+    })
+});
